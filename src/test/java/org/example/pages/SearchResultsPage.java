@@ -26,15 +26,16 @@ public class SearchResultsPage extends Extensions {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void filterResults (int indexOption){
+	public void filterResults (int indexOption) throws InterruptedException {
 		Select select = new Select(filterSelect);
 		select.selectByIndex(indexOption);
 		waitHelper.waitForPageLoaded();
+		waitHelper.waitForAllElements(itemsList);
 	}
 
-	public String getItemNameByIndex(int indexCard) {
-		waitHelper.waitUntilElementClickable(itemsList.get(indexCard));
-		return itemsList.get(indexCard).findElement(By.xpath(".//h2/span")).getText();
+	public String getFirstItemName() {
+		waitHelper.waitUntilElementVisible(itemsList.get(0));
+		return itemsList.get(0).findElement(By.xpath(".//h2/span")).getText();
 	}
 
 	public void selectItemNameByIndex(int indexCard) {
@@ -43,7 +44,7 @@ public class SearchResultsPage extends Extensions {
 	}
 
 	public Boolean assertMinimumItems(int minimumItems){
-		WaitHelper.waitUntilElementVisible(itemsList.get(0));
+		waitHelper.waitForAllElements(itemsList);
 		if(itemsList.size()<minimumItems){
 			log.error("The total of results is "+itemsList.size());
 			return false;

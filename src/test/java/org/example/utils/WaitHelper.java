@@ -1,14 +1,15 @@
 package org.example.utils;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import java.util.List;
+import java.util.function.Function;
+
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 
 
 public class WaitHelper {
-	private static WebDriver driver;
 	private static WebDriverWait wait;
+	private WebDriver driver;
 
 	public WaitHelper(WebDriver driver){
 		this.driver = driver;
@@ -16,25 +17,42 @@ public class WaitHelper {
 	}
 
 	public static WebElement waitUntilElementVisible(WebElement element){
-		return wait.until(ExpectedConditions.visibilityOf(element));
+		return waitUntilCondition(ExpectedConditions.visibilityOf(element));
 	}
 
 	public static void waitUntilElementClickable(WebElement element){
-		wait.until(ExpectedConditions.elementToBeClickable(element));
+		waitUntilCondition(ExpectedConditions.elementToBeClickable(element));
 	}
 
 	public static void waitUntilFieldIsNotEmpty(WebElement field){
 		wait.until(driver -> !field.getAttribute("value").isEmpty());	}
 
-	public static void waitForPageLoaded() {
-		ExpectedCondition<Boolean> expectation = driver ->
-				((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+	public static void waitForAllElements(List<WebElement> elementsList){
+		wait.until(ExpectedConditions.visibilityOfAllElements(elementsList));
+	}
 
-		try {
-			Thread.sleep(2000);
-			wait.until(expectation);
-		} catch (Throwable error) {
-			System.out.println("Timeout waiting for Page Load Request to complete.");
+	public void waitForPageLoaded() throws InterruptedException {
+		int attempts = 0;
+		while (!((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete")) {
+			Thread.sleep(200);
+			attempts++;
+			if (attempts > 10) {
+				throw new RuntimeException("Unexpected: The page does not load");
+			}
 		}
+	}
+
+	private static WebElement waitUntilCondition(Function<WebDriver, WebElement> condition) {
+		final int MAX_ATTEMPTS = 5;
+		for (int i = 0; i < MAX_ATTEMPTS; i++) {
+			try {
+				return wait.until(condition);
+			} catch (StaleElementReferenceException exception) {
+				if (i == MAX_ATTEMPTS - 1) {
+					throw exception;
+				}
+			}
+		}
+		return null;
 	}
 }

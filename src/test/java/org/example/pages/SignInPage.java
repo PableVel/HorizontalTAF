@@ -24,7 +24,7 @@ public class SignInPage extends Extensions {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void signIn(String email, String password){
+	public void signIn(String email, String password) throws InterruptedException {
 		sendKeys(emailField,email);
 		enterByActions(continueButton);
 		waitHelper.waitForPageLoaded();

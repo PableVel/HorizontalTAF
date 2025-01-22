@@ -2,17 +2,15 @@ package org.example.utils;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 
 public class Extensions {
-	private static WebDriver driver;
 	protected static WaitHelper waitHelper;
 	private JavascriptExecutor js;
 	private Actions actions;
 
 	public Extensions(WebDriver driver){
-		this.driver = driver;
 		waitHelper = new WaitHelper(driver);
 		actions = new Actions(driver);
 		js = (JavascriptExecutor) driver;

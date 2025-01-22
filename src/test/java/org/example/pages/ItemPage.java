@@ -16,7 +16,7 @@ public class ItemPage extends Extensions {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void addItemToCart(){
+	public void addItemToCart() throws InterruptedException {
 		click(addToCartButton);
 		waitHelper.waitForPageLoaded();
 	}

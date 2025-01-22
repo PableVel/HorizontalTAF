@@ -1,58 +1,35 @@
 package org.example;
 
 import org.example.pages.*;
-import org.example.utils.Driver;
-import org.example.utils.WaitHelper;
+import org.example.utils.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 
-public class UiTest {
+public class UiTest extends Hooks {
 
-
-	WebDriver driver;
-	WaitHelper waitHelper;
-
-
-	@BeforeMethod
-	public void beforeTest() {
-		driver = Driver.getDriver();
-		waitHelper = new WaitHelper(driver);
-		driver.manage().window().maximize();
-		driver.get("https://www.bookdepository.com/");
-		waitHelper.waitForPageLoaded();
-	}
-
-	@AfterMethod
-	public void  afterTest(){
-		driver.quit();
-	}
-
-	@Test
-	public void searchTest() {
+	@Test(dataProvider = "searchItems", dataProviderClass = TestDataProvider.class)
+	public void searchTest(String searchItem, String expectedSubtotal) throws InterruptedException {
 		MainPage mainPage = new MainPage(driver);
 		SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
 		ItemPage itemPage = new ItemPage(driver);
 		AddedToCartPage addedToCartPage = new AddedToCartPage(driver);
 		SignInPage signInPage = new SignInPage(driver);
 
-		String ItemText = "Thinking in Java";
 		int minimumItems = 3;
 		int indexOption = 2;
-		String expectedSubtotal = "USD 74.35";
 		String email = "testpablo364@gmail.com";
 		String password = "Password123.";
-		String publicationDateBeforeFilter;
-		String publicationDateAfterFilter;
+		String firstItemNameBeforeFilter;
+		String firstItemNameAfterFilter;
 
-		mainPage.searchItem(ItemText);
+		mainPage.searchItem(searchItem);
 		Assert.assertTrue(searchResultsPage.assertMinimumItems(minimumItems));
-
-		publicationDateBeforeFilter = searchResultsPage.getItemNameByIndex(0);
+		firstItemNameBeforeFilter = searchResultsPage.getFirstItemName();
 		searchResultsPage.filterResults(indexOption);
-		publicationDateAfterFilter= searchResultsPage.getItemNameByIndex(0);
-		Assert.assertNotEquals(publicationDateAfterFilter,publicationDateBeforeFilter);
+		firstItemNameAfterFilter= searchResultsPage.getFirstItemName();
+		Assert.assertNotEquals(firstItemNameBeforeFilter,firstItemNameAfterFilter);
 
 		searchResultsPage.selectItemNameByIndex(indexOption);
 		itemPage.addItemToCart();
