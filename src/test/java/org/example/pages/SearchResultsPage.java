@@ -2,12 +2,10 @@ package org.example.pages;
 
 import java.util.List;
 
-import org.example.utils.Extensions;
-import org.example.utils.WaitHelper;
+import org.example.utils.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -17,24 +15,29 @@ public class SearchResultsPage extends Extensions {
 	@FindBy(xpath = "//div[@role='listitem']")
 	List<WebElement> itemsList;
 
-	@FindBy(name = "s")
-	WebElement filterSelect;
+	@FindBy(xpath = "//li[@class='a-dropdown-item']")
+	List<WebElement> filterOptions;
+
+	@FindBy(xpath = "//span[@class='a-dropdown-prompt']")
+	WebElement filterDropdown;
 
 
-	public SearchResultsPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
+	public SearchResultsPage() {
+		PageFactory.initElements(Driver.getDriver(), this);
 	}
 
 	public void filterResults (int indexOption) throws InterruptedException {
-		Select select = new Select(filterSelect);
-		select.selectByIndex(indexOption);
-		waitHelper.waitForPageLoaded();
+		click(filterDropdown);
+		waitHelper.waitForAllElements(filterOptions);
+		for(int i = 0; i< indexOption; i++){
+			executeAction(Keys.ARROW_DOWN);
+		}
+		executeAction(Keys.ENTER);
 		waitHelper.waitForAllElements(itemsList);
 	}
 
 	public String getFirstItemName() {
-		waitHelper.waitUntilElementVisible(itemsList.get(0));
+		waitHelper.waitForAllElements(itemsList);
 		return itemsList.get(0).findElement(By.xpath(".//h2/span")).getText();
 	}
 

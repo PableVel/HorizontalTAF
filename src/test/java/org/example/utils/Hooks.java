@@ -5,20 +5,20 @@ import org.testng.annotations.*;
 
 
 public class Hooks {
-	protected WebDriver driver;
+	protected ThreadLocal<WebDriver> driver = Driver.getDriverThreadLocal();
 	protected WaitHelper waitHelper;
 
 	@BeforeMethod
 	public void beforeTest() throws InterruptedException {
-		driver = Driver.getDriver();
-		waitHelper = new WaitHelper(driver);
-		driver.manage().window().maximize();
-		driver.get("https://www.bookdepository.com/");
+		driver.set(Driver.getDriver());
+		waitHelper = new WaitHelper();
+		driver.get().manage().window().maximize();
+		driver.get().get("https://www.bookdepository.com/");
 		waitHelper.waitForPageLoaded();
 	}
 
 	@AfterMethod
-	public void  afterTest(){
+	public void afterTest() {
 		Driver.quitDriver();
 	}
 }
