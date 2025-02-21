@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e8326e5-3b24-4ed6-8b6e-cfac96917088" name="Changes" comment="Change to selenide, module 6">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/utils/Hooks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/utils/TestDataProvider.java" afterDir="false" />
+    <list default="true" id="03b24b38-e997-423b-8326-ba9ed0c3dc06" name="Changes" comment="Change to selenide, module 6">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/node.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/node2.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/UiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/UiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/pages/AddedToCartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/pages/AddedToCartPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/pages/ItemPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/pages/ItemPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/pages/MainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/pages/SearchResultsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/pages/SearchResultsPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/pages/SignInPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/pages/SignInPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/utils/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/utils/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/utils/Extensions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/utils/Extensions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/utils/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/utils/Hooks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/utils/WaitHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/utils/WaitHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testng.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Selenide" />
+        <entry key="$PROJECT_DIR$" value="SeleniumWebdriver3" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,13 +49,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "last_opened_file_path": "C:/Users/Pablo_Velazquez/Documents/Modulo5/untitled/src/test/resources"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Pablo_Velazquez\Documents\Modulo5\untitled\src\test\resources" />
+    </key>
+  </component>
   <component name="RunManager" selected="TestNG.UiTest">
     <configuration name="UiTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="untitled" />

@@ -1,0 +1,10 @@
+[node]
+session-timeout = "30000"
+override-max-sessions = false
+detect-drivers = true
+max-sessions = 2
+
+[[node.driver-configuration]]
+display-name = "Chrome"
+stereotype = '{"browserName": "chrome", "browserVersion": "113", "platformName": "Windows 10"}'
+max-sessions = 1

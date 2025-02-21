@@ -1,5 +1,7 @@
 package org.example.utils;
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
@@ -11,7 +13,7 @@ public class Extensions {
 	private Actions actions;
 
 
-	public Extensions() {
+	public Extensions() throws MalformedURLException {
 		waitHelper = new WaitHelper();
 		actions = new Actions(Driver.getDriver());
 		js = (JavascriptExecutor) Driver.getDriver();
@@ -20,11 +22,6 @@ public class Extensions {
 	public void click(WebElement webElement) {
 		waitHelper.waitUntilElementClickable(webElement);
 		js.executeScript("arguments[0].click();", webElement);
-	}
-
-	public String getTextFromElement(WebElement webElement) {
-		waitHelper.waitUntilElementVisible(webElement);
-		return webElement.getText();
 	}
 
 	public String getPropertyFromElement(WebElement webElement, String attribute) {

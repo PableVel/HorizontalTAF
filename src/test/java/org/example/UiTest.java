@@ -1,5 +1,7 @@
 package org.example;
 
+import java.net.MalformedURLException;
+
 import org.example.pages.*;
 import org.example.utils.*;
 import org.testng.Assert;
@@ -10,7 +12,8 @@ import org.testng.annotations.*;
 public class UiTest extends Hooks {
 
 	@Test(dataProvider = "searchItems", dataProviderClass = TestDataProvider.class)
-	public void searchTest(String searchItem, String expectedSubtotal) throws InterruptedException {
+	public void searchTest(String searchItem, String expectedSubtotal) throws InterruptedException,
+			MalformedURLException {
 		MainPage mainPage = new MainPage();
 		SearchResultsPage searchResultsPage = new SearchResultsPage();
 		ItemPage itemPage = new ItemPage();
@@ -41,7 +44,7 @@ public class UiTest extends Hooks {
 	}
 
 	@Test()
-	public void simpleTest() {
+	public void simpleTest() throws MalformedURLException {
 
 		MainPage mainPage = new MainPage();
 		String itemToSearch = "Harry Potter";
