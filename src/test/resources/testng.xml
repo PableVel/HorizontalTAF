@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name = "Parallel Testing Suite" data-provider-thread-count="2">
+    <test name = "Parallel Tests" parallel = "methods" thread-count="3">
+        <parameter name="browser" value=""></parameter>
+        <classes>
+            <class name = "org.example.UiTest" />
+        </classes>
+    </test>
+</suite>

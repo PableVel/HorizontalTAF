@@ -1,5 +1,6 @@
 package org.example.pages;
 
+import org.example.utils.Driver;
 import org.example.utils.Extensions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -19,13 +20,12 @@ public class SignInPage extends Extensions {
 	@FindBy(id = "signInSubmit")
 	WebElement signInButton;
 
-	public SignInPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
+	public SignInPage() {
+		PageFactory.initElements(Driver.getDriver(), this);
 	}
 
 	public void signIn(String email, String password) throws InterruptedException {
-		sendKeys(emailField,email);
+		sendKeys(emailField, email);
 		enterByActions(continueButton);
 		waitHelper.waitForPageLoaded();
 		sendKeys(passwordField, password);

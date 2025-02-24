@@ -1,7 +1,7 @@
 package org.example.pages;
 
+import org.example.utils.Driver;
 import org.example.utils.Extensions;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,16 +14,15 @@ public class AddedToCartPage extends Extensions {
 	@FindBy(name = "proceedToRetailCheckout")
 	WebElement proceedToRetailCheckoutButton;
 
-	public AddedToCartPage(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(driver, this);
+	public AddedToCartPage() {
+		PageFactory.initElements(Driver.getDriver(), this);
 	}
 
-	public String getCartSubtotal(){
+	public String getCartSubtotal() {
 		return getPropertyFromElement(cartSubtotal, "data-price");
 	}
 
-	public void proceedToCheckout(){
+	public void proceedToCheckout() {
 		click(proceedToRetailCheckoutButton);
 	}
 
