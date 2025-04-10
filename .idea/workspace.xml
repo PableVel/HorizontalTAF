@@ -4,26 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03b24b38-e997-423b-8326-ba9ed0c3dc06" name="Changes" comment="Change to selenide, module 6">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/node.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/node2.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/UiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/UiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/pages/AddedToCartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/pages/AddedToCartPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/pages/ItemPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/pages/ItemPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/pages/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/pages/SearchResultsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/pages/SearchResultsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/pages/SignInPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/pages/SignInPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/utils/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/utils/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/utils/Extensions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/utils/Extensions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/utils/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/utils/Hooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/utils/WaitHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/utils/WaitHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testng.xml" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="untitled" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -44,7 +47,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2rm6wOc1CLYdKGYgb2wtCYyWisI" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
