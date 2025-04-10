@@ -1,5 +1,5 @@
 [node]
-session-timeout = "30000"
+session-timeout = "30001"
 override-max-sessions = false
 detect-drivers = true
 max-sessions = 2
