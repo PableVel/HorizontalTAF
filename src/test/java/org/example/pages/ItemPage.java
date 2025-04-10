@@ -1,5 +1,7 @@
 package org.example.pages;
 
+import java.net.MalformedURLException;
+
 import org.example.utils.Driver;
 import org.example.utils.Extensions;
 import org.openqa.selenium.WebElement;
@@ -11,7 +13,7 @@ public class ItemPage extends Extensions {
 	@FindBy(xpath = "//input[contains(@id,'add-to-cart-button')]")
 	WebElement addToCartButton;
 
-	public ItemPage() {
+	public ItemPage() throws MalformedURLException {
 		PageFactory.initElements(Driver.getDriver(), this);
 	}
 

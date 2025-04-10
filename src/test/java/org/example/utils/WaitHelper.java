@@ -1,5 +1,6 @@
 package org.example.utils;
 
+import java.net.MalformedURLException;
 import java.util.List;
 import java.util.function.Function;
 
@@ -8,11 +9,13 @@ import org.openqa.selenium.support.ui.*;
 
 
 public class WaitHelper {
-	private WebDriverWait wait;
-	private ThreadLocal<WebDriver> driver = Driver.getDriverThreadLocal();
+	private static WebDriverWait wait;
+	private static ThreadLocal<WebDriver> driver = Driver.getDriverThreadLocal();
+	public String browser;
 
-	public WaitHelper() {
+	public WaitHelper() throws MalformedURLException {
 		driver.set(Driver.getDriver());
+		this.browser = browser;
 		this.wait = new WebDriverWait(driver.get(), 10);
 	}
 
@@ -20,7 +23,7 @@ public class WaitHelper {
 		return waitUntilCondition(ExpectedConditions.visibilityOf(element));
 	}
 
-	public void waitUntilElementClickable(WebElement element) {
+	public static void waitUntilElementClickable(WebElement element) {
 		waitUntilCondition(ExpectedConditions.elementToBeClickable(element));
 	}
 
@@ -28,11 +31,11 @@ public class WaitHelper {
 		wait.until(driver -> !field.getAttribute("value").isEmpty());
 	}
 
-	public void waitForAllElements(List<WebElement> elementsList) {
+	public static void waitForAllElements(List<WebElement> elementsList) {
 		wait.until(ExpectedConditions.visibilityOfAllElements(elementsList));
 	}
 
-	public void waitForPageLoaded() throws InterruptedException {
+	public static void waitForPageLoaded() throws InterruptedException {
 		int attempts = 0;
 		while (!((JavascriptExecutor) driver.get()).executeScript("return document.readyState").equals("complete")) {
 			Thread.sleep(200);
@@ -43,7 +46,7 @@ public class WaitHelper {
 		}
 	}
 
-	private WebElement waitUntilCondition(Function<WebDriver, WebElement> condition) {
+	private static WebElement waitUntilCondition(Function<WebDriver, WebElement> condition) {
 		final int MAX_ATTEMPTS = 5;
 		for (int i = 0; i < MAX_ATTEMPTS; i++) {
 			try {

@@ -1,5 +1,6 @@
 package org.example.pages;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 import org.example.utils.*;
@@ -11,7 +12,7 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 
-public class SearchResultsPage extends Extensions {
+public class SearchResultsPage extends Extensions{
 	@FindBy(xpath = "//div[@role='listitem']")
 	List<WebElement> itemsList;
 
@@ -22,11 +23,11 @@ public class SearchResultsPage extends Extensions {
 	WebElement filterDropdown;
 
 
-	public SearchResultsPage() {
+	public SearchResultsPage() throws MalformedURLException {
 		PageFactory.initElements(Driver.getDriver(), this);
 	}
 
-	public void filterResults (int indexOption) throws InterruptedException {
+	public void filterResults (int indexOption)  {
 		click(filterDropdown);
 		waitHelper.waitForAllElements(filterOptions);
 		for(int i = 0; i< indexOption; i++){

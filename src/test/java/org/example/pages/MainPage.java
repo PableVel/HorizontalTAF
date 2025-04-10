@@ -1,5 +1,7 @@
 package org.example.pages;
 
+import java.net.MalformedURLException;
+
 import org.example.utils.Driver;
 import org.example.utils.Extensions;
 import org.openqa.selenium.WebElement;
@@ -14,7 +16,7 @@ public class MainPage extends Extensions {
 	@FindBy(id = "nav-search-submit-button")
 	WebElement searchButton;
 
-	public MainPage() {
+	public MainPage() throws MalformedURLException {
 		PageFactory.initElements(Driver.getDriver(), this);
 	}
 

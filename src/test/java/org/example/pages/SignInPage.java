@@ -1,7 +1,8 @@
 package org.example.pages;
 
-import org.example.utils.Driver;
-import org.example.utils.Extensions;
+import java.net.MalformedURLException;
+
+import org.example.utils.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -20,7 +21,7 @@ public class SignInPage extends Extensions {
 	@FindBy(id = "signInSubmit")
 	WebElement signInButton;
 
-	public SignInPage() {
+	public SignInPage() throws MalformedURLException {
 		PageFactory.initElements(Driver.getDriver(), this);
 	}
 
